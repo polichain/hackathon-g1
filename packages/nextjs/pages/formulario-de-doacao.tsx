@@ -7,6 +7,7 @@ import { Header } from "~~/components/Header";
 const FormularioDeDoacao: React.FC = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
+    doador: "", // Correção: adicionado o campo 'doador'
     beneficiario: "",
     endereco: "",
     itens: "",
@@ -30,23 +31,21 @@ const FormularioDeDoacao: React.FC = () => {
         <div className="form-container">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="beneficiario">Beneficiário</label>
-              <input
-                type="text"
-                id="beneficiario"
-                name="beneficiario"
-                value={formData.beneficiario}
-                onChange={handleChange}
-                required
-              />
+              <h2>Beneficiário: Maria Aparecida</h2>
             </div>
             <div className="form-group">
-              <label htmlFor="itens">Itens a serem doados</label>
-              <textarea id="itens" name="itens" value={formData.itens} onChange={handleChange} required />
+              <h2>Descrição: Necessita de 50 pacotes de fraldas do tamanho P</h2>
             </div>
             <div className="form-group">
               <label htmlFor="doador">Doador</label>
-              <input type="text" id="doador" name="doador" value={formData.endereco} onChange={handleChange} required />
+              <input
+                type="text"
+                id="doador"
+                name="doador"
+                value={formData.doador} // Correção: usar 'formData.doador' ao invés de 'formData.endereco'
+                onChange={handleChange}
+                required
+              />
             </div>
             <button type="submit" className="cta-button">
               Enviar
