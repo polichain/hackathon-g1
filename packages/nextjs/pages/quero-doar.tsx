@@ -1,115 +1,149 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import logo from "../public/logo.png";
+import { Header } from "~~/components/Header";
 
-interface Need {
+interface Request {
   id: number;
   beneficiary: string;
   description: string;
   status: string;
   requiresTransport: boolean;
-}
-
-interface Donation {
-  needId: number;
   donor: string;
   delivered: boolean;
   carrier: string;
   transitStartTime: number;
 }
 
-const needs: Need[] = [
+const requests: Request[] = [
   {
     id: 1,
     beneficiary: "Maria Aparecida",
-    description: "Família perdeu a casa em uma enchente e precisa de alimentos e roupas.",
-    status: "Ativa",
+    description: "Necessita de fraldas de todos os tamanhos",
+    status: "Urgência",
     requiresTransport: true,
+    donor: "Empresa F",
+    delivered: false,
+    carrier: "Transportadora A",
+    transitStartTime: 1714458178,
   },
   {
     id: 2,
-    beneficiary: "Carlos Souza",
-    description: "Deslizamento de terra destruiu a residência, necessitando móveis e utensílios domésticos.",
-    status: "Ativa",
-    requiresTransport: true,
+    beneficiary: "João da Silva",
+    description: "Necessita de 10 colchões",
+    status: "Sanada",
+    requiresTransport: false,
+    donor: "Empresa E",
+    delivered: true,
+    carrier: "Transportadora B",
+    transitStartTime: 1714588878,
   },
   {
     id: 3,
-    beneficiary: "Ana Paula",
-    description: "Incêndio florestal deixou a comunidade sem acesso a água potável e produtos de higiene.",
-    status: "Ativa",
+    beneficiary: "Alice de Oliveira",
+    description: "Necessita de 100L de água e 200kg de alimento",
+    status: "Em transporte",
     requiresTransport: true,
-  },
-];
-
-const donations: Donation[] = [
-  { needId: 1, donor: "João da Silva", delivered: false, carrier: "Super Fast", transitStartTime: 1714444878 },
-  {
-    needId: 2,
-    donor: "Mariana Ferreira",
+    donor: "Empresa D",
     delivered: false,
-    carrier: "Transporte Seguro",
-    transitStartTime: 1714544878,
+    carrier: "Transportadora C",
+    transitStartTime: 1714669848,
   },
-  { needId: 3, donor: "Pedro Oliveira", delivered: false, carrier: "Entrega Rápida", transitStartTime: 1714644878 },
+  {
+    id: 4,
+    beneficiary: "Artur Calixto",
+    description: "Necessita de 200L de água",
+    status: "Esperando retirada",
+    requiresTransport: false,
+    donor: "Empresa C",
+    delivered: true,
+    carrier: "Transportadora D",
+    transitStartTime: 1714574878,
+  },
+  {
+    id: 5,
+    beneficiary: "Willian de Azevedo",
+    description: "Necessita de 230kg de alimento e 4 pacotes de fraldas geriátricas",
+    status: "Recebida",
+    requiresTransport: true,
+    donor: "Empresa B",
+    delivered: false,
+    carrier: "Transportadora E",
+    transitStartTime: 1714388742,
+  },
+  {
+    id: 6,
+    beneficiary: "Evandro Souza",
+    description: "Necessita de remédios para pressão alta e diabetes",
+    status: "Em estoque",
+    requiresTransport: false,
+    donor: "Empresa A",
+    delivered: true,
+    carrier: "Transportadora F",
+    transitStartTime: 1714296541,
+  },
 ];
 
-const urgentStatuses = ["Ativa"];
-
-const QueroDoar: React.FC = () => {
-  const [selectedStatus] = useState("Urgência (precisando de ajuda)");
+const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ request, onClose }) => {
+  if (!request) return null;
 
   return (
-    <div className="page-container">
-      <header className="header">
-        <div className="logo-container">
-          <Link href="/sobre" passHref>
-            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
-          </Link>
-          <span className="project-title">Corrente do bem</span>
-        </div>
-        <nav className="nav">
-          <Link href="/por-que-doar" passHref>
-            <div>Por que doar</div>
-          </Link>
-          <Link href="/sobre" passHref>
-            <div>Sobre nós</div>
-          </Link>
-          <Link href="/doacoes" passHref>
-            <div>Doações</div>
-          </Link>
-          <Link href="/quero-doar" passHref>
-            <button className="donate-button">Quero Doar</button>
-          </Link>
-        </nav>
-      </header>
-      <main>
-        <br />
-        <h1 className="centered-title">Doações com Urgência</h1>
-        <div className="donations-list">
-          <h2>Doações com status: {selectedStatus}</h2>
-          {donations
-            .filter(donation => needs.some(need => need.id === donation.needId && urgentStatuses.includes(need.status)))
-            .map(donation => {
-              const need = needs.find(need => need.id === donation.needId);
-              if (!need) return null;
-              return (
-                <div key={donation.needId} className="donation-item">
-                  <p>Beneficiário: {need.beneficiary}</p>
-                  <p>Descrição: {need.description}</p>
-                  <p>Doação de: {donation.donor}</p>
-                  <p>Status: {selectedStatus}</p>
-                  <p>Entregue: {donation.delivered ? "Sim" : "Não"}</p>
-                  <p>Transportadora: {donation.carrier}</p>
-                  <p>Data de Início do Transporte: {new Date(donation.transitStartTime * 1000).toLocaleDateString()}</p>
-                </div>
-              );
-            })}
-        </div>
-      </main>
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div className="popup-content bg-white p-6 rounded-lg shadow-lg w-1/2">
+        <h2 className="text-2xl mb-4">Detalhes da Doação</h2>
+        <p>Beneficiário: {request.beneficiary}</p>
+        <p>Descrição: {request.description}</p>
+        <p>Status: {request.status}</p>
+        <p>Doação de: {request.donor}</p>
+        <p>Entregue: {request.delivered ? "Sim" : "Não"}</p>
+        <p>Transportadora: {request.carrier}</p>
+        <p>Data de Início do Transporte: {new Date(request.transitStartTime * 1000).toLocaleDateString()}</p>
+        {request.status === "Urgência" && <button className="btn btn-primary mt-4">Doar</button>}
+        <button className="btn btn-secondary mt-4" onClick={onClose}>
+          Fechar
+        </button>
+      </div>
     </div>
   );
 };
 
-export default QueroDoar;
+const DonationContainer: React.FC<{ request: Request; onClick: () => void }> = ({ request, onClick }) => (
+  <div className="donation-item cursor-pointer p-4 border-b border-gray-200" onClick={onClick}>
+    <p>Beneficiário: {request.beneficiary}</p>
+    <p>Descrição: {request.description}</p>
+    <p>Status: {request.status}</p>
+  </div>
+);
+
+const Doacoes: React.FC = () => {
+  const [selectedRequest, setSelectedRequest] = useState<Request | null>(null);
+  const selectedStatus = "Urgência";
+
+  const handleRequestClick = (request: Request) => {
+    setSelectedRequest(request);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedRequest(null);
+  };
+
+  return (
+    <div className="page-container">
+      <Header />
+      <main>
+        <br />
+        <h1 className="centered-title">Necessidade de ajuda</h1>
+        <div className="donations-list">
+          <br />
+          <h2>Demandas que precisam de você</h2>
+          {requests
+            .filter(request => request.status === selectedStatus)
+            .map(request => (
+              <DonationContainer key={request.id} request={request} onClick={() => handleRequestClick(request)} />
+            ))}
+        </div>
+      </main>
+      {selectedRequest && <Popup request={selectedRequest} onClose={handleClosePopup} />}
+    </div>
+  );
+};
+
+export default Doacoes;
