@@ -19,17 +19,19 @@ const Sobre = () => {
             <p>
               Há 15 meses os oceanos estão batendo recordes de temperaturas máximas e junho bateu o 13° recorde mensal
               seguido de temperatura. Quando olhamos para o sul global, vemos eventos extremos climáticos acontecendo de
-              norte ao sul do Brasil.{" "}
+              norte ao sul do Brasil.Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo
+              intensificadas pelos fenômenos já conhecidos do El nino e La nina.{" "}
             </p>
             <p>
-              Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo intensificadas pelos
-              fenômenos já conhecidos do El nino e La nina. Sendo assim, podemos começar a entender que a causa raiz de
-              todas as catástrofes globais, como as ocorrida no RS são consequências dos altos níveis de uso de
-              combustíveis fósseis e aumento da emissão dos gases de efeito estufa na terra. Já se sabe que pelo menos
-              30% dos brasileiros já tiveram prejuízos em casa devido ao clima e 3 milhões de pessoas foram impactadas
-              pelas inundações recentes nos RS, atingido inclusive 15 mil animais que foram abandonados frente a esse
-              desastre. Com esse panorama a plataforma aqui busca solucionar os gargalos na cadeia de suprimentos de
-              doações em casos de emergências e situações de vulnerabilidade, com transparência e certificações
+              Sendo assim, podemos começar a entender que a causa raiz de todas as catástrofes globais, como as ocorrida
+              no RS são consequências dos altos níveis de uso de combustíveis fósseis e aumento da emissão dos gases de
+              efeito estufa na terra. Já se sabe que pelo menos 30% dos brasileiros já tiveram prejuízos em casa devido
+              ao clima e 3 milhões de pessoas foram impactadas pelas inundações recentes nos RS, atingido inclusive 15
+              mil animais que foram abandonados frente a esse desastre.
+            </p>
+            <p>
+              Com esse panorama, o nosso projeto nessa plataforma busca solucionar os gargalos na cadeia de suprimentos
+              de doações em casos de emergências e situações de vulnerabilidade, com transparência e certificações
               assegurando que as doações encontrem o caminho mais rápido e eficaz de chegar a destino final que
               solicitar uma demanda específica de produto.
             </p>
@@ -38,10 +40,16 @@ const Sobre = () => {
         </div>
         <div className="section">
           <div className="section-text">
-            <br />
-            <br />
             <p>
-              De maneira geral as doações serão separadas como forma de kits:
+              Visando sanar situações emergenciais e carência de recurso,o nosso diferencial é entregar certificação,
+              transparência e rastreabilidade durante toda a cadeia de suprimentos de doação de diferentes produtos.
+              Além de otimizar as entregas de doações de forma rápida, eficaz e sem desperdícios.
+            </p>
+            <br />
+
+            <p>
+              De maneira geral, o nosso projeto prevê que as doações serão separadas como forma de kits antes de serem
+              entregues:
               <br />
               Kits limpeza - Candida, sabão em pó...
               <br />

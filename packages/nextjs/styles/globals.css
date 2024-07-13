@@ -71,6 +71,12 @@ body {
   color: #18044E;
   text-align: center;
 }
+.cemtered-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #000000;
+  text-align: center;
+}
 
 .content {
   display: flex;

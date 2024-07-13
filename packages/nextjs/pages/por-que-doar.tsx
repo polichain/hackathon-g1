@@ -18,8 +18,7 @@ const PorQueDoar = () => {
                 contribuindo para o desenvolvimento social e econômico do Brasil. Cada contribuição pode gerar um
                 impacto significativo, desde melhorar a educação, apoiar a saúde, promover a cultura até fortalecer
                 iniciativas ambientais. Empresas que doam não só ajudam a resolver problemas urgentes, mas também
-                constroem um legado de responsabilidade social que inspira colaboradores e clientes. Doe e transforme.
-                Juntos, podemos fazer do Brasil um lugar melhor para todos.
+                constroem um legado de responsabilidade social que inspira colaboradores e clientes.
               </p>
             </div>
             <div className="image-wrapper">
@@ -30,12 +29,9 @@ const PorQueDoar = () => {
             <div className="image-wrapper">
               <Image src="/voluntarios.jpg" alt="Voluntários" width={250} height={250} />
             </div>
-            <div className="section-text">
-              <p>
-                O nosso diferencial é entregar certificação, transparência e rastreabilidade durante toda a cadeia de
-                suprimentos de doação de diferentes produtos. Além de otimizar as entregas de doações de forma rápida,
-                eficaz e sem desperdícios.
-              </p>
+            <div className="cemtered-title">
+              <p> Doe e transforme.</p>
+              <p>Juntos, podemos fazer do Brasil um lugar melhor para todos.</p>
             </div>
           </div>
         </div>
