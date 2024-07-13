@@ -260,7 +260,7 @@ form-container {
 }
 
 .cta-button {
-  background-color: #0070f3;
+  background-color: #18044E;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -270,5 +270,5 @@ form-container {
 }
 
 .cta-button:hover {
-  background-color: #005bb5;
+  background-color: #18044E;
 }
