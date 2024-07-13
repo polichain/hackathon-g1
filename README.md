@@ -4,7 +4,7 @@
 O projeto Correntes do Bem é uma plataforma descentralizada que visa resolver os gargalos da cadeia de suprimentos humanitária com certificação, rastreabilidade e transparência. Através do uso de tecnologia blockchain, garantimos que as doações cheguem de forma eficiente e rápida às comunidades necessitadas, aliviando o sofrimento imediato e fortalecendo a resiliência a longo prazo dessas comunidades.
 
 ### Tecnologias Utilizadas
-- **Frontend**: React
+- **Frontend**: React, NextJS
 - **Blockchain**: Solidity
 - **Plataforma de Deploy**: Vercel
 
@@ -29,7 +29,7 @@ Acesse a plataforma no link: [Corrente do Bem](https://corrente-do-bem.vercel.ap
 
 ### Contato
 
-Tiago Marino Lima - tiago.limarinho@gmail.com
+Tiago Marinho Lima - tiago.limarinho@gmail.com
 
 Vinício Mendes Roberto - contatoviniciom@gmail.com
 
