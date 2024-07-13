@@ -18,7 +18,7 @@ const requests: Request[] = [
   {
     id: 1,
     beneficiary: "Maria Aparecida",
-    description: "Necessita de fraldas de todos os tamanhos",
+    description: "Necessita de 50 pacotes de fraldas do tamanho P",
     status: "Urgência",
     requiresTransport: true,
     donor: "Empresa F",
@@ -26,8 +26,75 @@ const requests: Request[] = [
     carrier: "Transportadora A",
     transitStartTime: 1714458178,
   },
-  // Outros pedidos...
+  {
+    id: 2,
+    beneficiary: "João da Silva",
+    description: "Precisa-se de 10 colchões",
+    status: "Sanada",
+    requiresTransport: true,
+    donor: "Empresa E",
+    delivered: true,
+    carrier: "Transportadora B",
+    transitStartTime: 1714588878,
+  },
+  {
+    id: 3,
+    beneficiary: "Alice de Oliveira",
+    description: "Necessita de 100L de água e 200kg de alimento",
+    status: "Em transporte",
+    requiresTransport: true,
+    donor: "Empresa D",
+    delivered: false,
+    carrier: "Transportadora C",
+    transitStartTime: 1714669848,
+  },
+  {
+    id: 4,
+    beneficiary: "Artur Calixto",
+    description: "Precisa-se de 200L de água",
+    status: "Esperando retirada",
+    requiresTransport: false,
+    donor: "Empresa C",
+    delivered: true,
+    carrier: "",
+    transitStartTime: 1714574878,
+  },
+  {
+    id: 5,
+    beneficiary: "Willian de Azevedo",
+    description: "Necessita de 230kg de alimento e 4 pacotes de fraldas geriátricas",
+    status: "Recebida",
+    requiresTransport: true,
+    donor: "Empresa B",
+    delivered: false,
+    carrier: "Transportadora E",
+    transitStartTime: 1714388742,
+  },
+  {
+    id: 6,
+    beneficiary: "Evandro Souza",
+    description: "Necessita de remédios para pressão alta e diabetes",
+    status: "Em estoque",
+    requiresTransport: false,
+    donor: "Empresa A",
+    delivered: true,
+    carrier: "Transportadora F",
+    transitStartTime: 1714296541,
+  },
+  {
+    id: 7,
+    beneficiary: "Joao Vinicius",
+    description: "Precisa-se de 25 cobertores",
+    status: "Urgência",
+    requiresTransport: true,
+    donor: "Empresa Y",
+    delivered: false,
+    carrier: "Transportadora A",
+    transitStartTime: 1714458178,
+  },
 ];
+
+const statuses = ["Urgência", "Sanada", "Em transporte", "Esperando retirada", "Recebida", "Em estoque"];
 
 const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ request, onClose }) => {
   const router = useRouter();
@@ -75,7 +142,7 @@ const DonationContainer: React.FC<{ request: Request; onClick: () => void }> = (
 
 const Doacoes: React.FC = () => {
   const [selectedRequest, setSelectedRequest] = useState<Request | null>(null);
-  const selectedStatus = "Urgência";
+  const [selectedStatus, setSelectedStatus] = useState("Urgência");
 
   const handleRequestClick = (request: Request) => {
     setSelectedRequest(request);
@@ -85,15 +152,31 @@ const Doacoes: React.FC = () => {
     setSelectedRequest(null);
   };
 
+  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedStatus(event.target.value);
+  };
+
   return (
     <div className="page-container">
       <Header />
       <main>
         <br />
         <h1 className="centered-title">Necessidade de ajuda</h1>
+        <div className="filter-container">
+          <div className="section-text">
+            <label htmlFor="status">Filtrar por status:</label>
+            <select id="status" value={selectedStatus} onChange={handleStatusChange}>
+              {statuses.map(status => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <div className="donations-list">
           <br />
-          <h2>Demandas que precisam de você</h2>
+          <h2>Doações com status: {selectedStatus}</h2>
           {requests
             .filter(request => request.status === selectedStatus)
             .map(request => (
