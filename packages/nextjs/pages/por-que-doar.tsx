@@ -8,7 +8,10 @@ const PorQueDoar = () => {
     <div className="page-container">
       <header className="header">
         <div className="logo-container">
-          <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          <Link href="/sobre" passHref>
+            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          </Link>
+          <span className="project-title">Corrente do bem</span>
         </div>
         <nav className="nav">
           <Link href="/por-que-doar" passHref>
@@ -20,7 +23,9 @@ const PorQueDoar = () => {
           <Link href="/doacoes" passHref>
             <div>Doações</div>
           </Link>
-          <button className="donate-button">Quero Doar</button>
+          <Link href="/quero-doar" passHref>
+            <button className="donate-button">Quero Doar</button>
+          </Link>{" "}
         </nav>
       </header>
       <main className="main-content">
@@ -29,24 +34,13 @@ const PorQueDoar = () => {
           <div className="section">
             <div className="section-text">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+                As empresas têm um papel fundamental na construção de um futuro melhor para todos. Ao investir em
+                doações, seja em dinheiro ou produtos, você não está apenas fortalecendo a sua marca, mas também
+                contribuindo para o desenvolvimento social e econômico do Brasil. Cada contribuição pode gerar um
+                impacto significativo, desde melhorar a educação, apoiar a saúde, promover a cultura até fortalecer
+                iniciativas ambientais. Empresas que doam não só ajudam a resolver problemas urgentes, mas também
+                constroem um legado de responsabilidade social que inspira colaboradores e clientes. Doe e transforme.
+                Juntos, podemos fazer do Brasil um lugar melhor para todos.
               </p>
             </div>
             <div className="image-wrapper">
@@ -55,24 +49,13 @@ const PorQueDoar = () => {
           </div>
           <div className="section">
             <div className="image-wrapper">
-              <Image src="/voluntarios2.jpg" alt="Voluntários" width={250} height={250} />
+              <Image src="/voluntarios.jpg" alt="Voluntários" width={250} height={250} />
             </div>
             <div className="section-text">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-                nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+                O nosso diferencial é entregar certificação, transparência e rastreabilidade durante toda a cadeia de
+                suprimentos de doação de diferentes produtos. Além de otimizar as entregas de doações de forma rápida,
+                eficaz e sem desperdícios.
               </p>
             </div>
           </div>

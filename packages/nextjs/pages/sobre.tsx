@@ -8,7 +8,10 @@ const Sobre = () => {
     <div className="page-container">
       <header className="header">
         <div className="logo-container">
-          <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          <Link href="/sobre" passHref>
+            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          </Link>
+          <span className="project-title">Corrente do bem</span>
         </div>
         <nav className="nav">
           <Link href="/por-que-doar" passHref>
@@ -20,7 +23,9 @@ const Sobre = () => {
           <Link href="/doacoes" passHref>
             <div>Doações</div>
           </Link>
-          <button className="donate-button">Quero Doar</button>
+          <Link href="/quero-doar" passHref>
+            <button className="donate-button">Quero Doar</button>
+          </Link>
         </nav>
       </header>
       <main className="main-content">
@@ -28,24 +33,27 @@ const Sobre = () => {
         <div className="section">
           <div className="section-text">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+              Em um contexto global tanto referente ao consenso científico através dos dados do IPCC (Painel
+              Intergovernamental de Mudanças Climáticas), quanto aos próprios eventos climáticos extremos acontecendo
+              com mais frequência por todo o globo, graças a média da temperatura terrestre ter completado 1 ano acima
+              de 1,5°C, evidenciam que as mudanças climáticas são reais até mesmo para os negacionista de plantão.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+              Há 15 meses os oceanos estão batendo recordes de temperaturas máximas e junho bateu o 13° recorde mensal
+              seguido de temperatura. Quando olhamos para o sul global, vemos eventos extremos climáticos acontecendo de
+              norte ao sul do Brasil.{" "}
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+              Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo intensificadas pelos
+              fenômenos já conhecidos do El nino e La nina. Sendo assim, podemos começar a entender que a causa raiz de
+              todas as catástrofes globais, como as ocorrida no RS são consequências dos altos níveis de uso de
+              combustíveis fósseis e aumento da emissão dos gases de efeito estufa na terra. Já se sabe que pelo menos
+              30% dos brasileiros já tiveram prejuízos em casa devido ao clima e 3 milhões de pessoas foram impactadas
+              pelas inundações recentes nos RS, atingido inclusive 15 mil animais que foram abandonados frente a esse
+              desastre. Com esse panorama a plataforma aqui busca solucionar os gargalos na cadeia de suprimentos de
+              doações em casos de emergências e situações de vulnerabilidade, com transparência e certificações
+              assegurando que as doações encontrem o caminho mais rápido e eficaz de chegar a destino final que
+              solicitar uma demanda específica de produto.
             </p>
           </div>
           <Image src="/voluntarios.jpg" alt="Voluntários" width={500} height={300} />
@@ -55,24 +63,16 @@ const Sobre = () => {
             <br />
             <br />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien elit. In malesuada semper mi,
-              nec consectetur velit aliquet vel. Lorem ipsum dolor sit amet.
+              De maneira geral as doações serão separadas como forma de kits:
+              <br />
+              Kits limpeza - Candida, sabão em pó...
+              <br />
+              Kits higiene pessoal - escova de dente, absorvente...
+              <br />
+              Kit de móveis - Fogão, Geladeira, Cama, Colchão...
+              <br />
+              Seguindo a cadeia de logística de transporte e chegada ao destino final com rastreabilidade e
+              assertividade.
             </p>
           </div>
         </div>

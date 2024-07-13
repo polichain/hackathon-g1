@@ -1,6 +1,4 @@
 /* styles/global.css */
-
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +17,7 @@ body {
 }
 
 .header {
-  background-color: #18044E;
+  background-color: #01948f;
   padding: 10px;
   color: white;
   display: flex;
@@ -30,13 +28,20 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .logo-container img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}
+
+.project-title {
+  font-family: 'Modernista';
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
 }
 
 .nav {
@@ -80,15 +85,18 @@ body {
 }
 
 .section img {
-  width: 250px;
-  height: 250px;
+  width: 500px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 8px; /* Deixar as imagens quadradas? */
+  border-radius: 8px;
 }
 
 .section-text {
+  font-size: 24px;
   flex: 1;
   margin-right: 20px;
+  word-wrap: break-word;
+  text-align: justify;
 }
 
 .section:nth-child(2) .section-text {
@@ -97,8 +105,15 @@ body {
   margin-left: 20px;
 }
 
+.donation-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 .donate-button {
-  background-color: #399E2D;
+  background-color: #18044E;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -108,7 +123,7 @@ body {
 }
 
 .donate-button:hover {
-  background-color: #2ecc71;
+  background-color: #18044E;
 }
 
 .cta-container {
@@ -118,7 +133,7 @@ body {
 }
 
 .cta-button {
-  background-color: #399E2D;
+  background-color: #18044E;
   color: white;
   padding: 15px 30px;
   text-decoration: none;
@@ -130,5 +145,13 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #2ecc71;
+  background-color: #18044E;
+}
+
+.donation-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
