@@ -16,12 +16,14 @@ const Sobre = () => {
               com mais frequência por todo o globo, graças a média da temperatura terrestre ter completado 1 ano acima
               de 1,5°C, evidenciam que as mudanças climáticas são reais até mesmo para os negacionista de plantão.
             </p>
+            <br />
             <p>
               Há 15 meses os oceanos estão batendo recordes de temperaturas máximas e junho bateu o 13° recorde mensal
               seguido de temperatura. Quando olhamos para o sul global, vemos eventos extremos climáticos acontecendo de
-              norte ao sul do Brasil.Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo
+              norte ao sul do Brasil. Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo
               intensificadas pelos fenômenos já conhecidos do El nino e La nina.{" "}
             </p>
+            <br />
             <p>
               Sendo assim, podemos começar a entender que a causa raiz de todas as catástrofes globais, como as ocorrida
               no RS são consequências dos altos níveis de uso de combustíveis fósseis e aumento da emissão dos gases de
@@ -29,6 +31,7 @@ const Sobre = () => {
               ao clima e 3 milhões de pessoas foram impactadas pelas inundações recentes nos RS, atingido inclusive 15
               mil animais que foram abandonados frente a esse desastre.
             </p>
+            <br />
             <p>
               Com esse panorama, o nosso projeto nessa plataforma busca solucionar os gargalos na cadeia de suprimentos
               de doações em casos de emergências e situações de vulnerabilidade, com transparência e certificações
@@ -36,30 +39,18 @@ const Sobre = () => {
               solicitar uma demanda específica de produto.
             </p>
           </div>
+          <br />
           <Image src="/voluntarios.jpg" alt="Voluntários" width={500} height={300} />
         </div>
         <div className="section">
           <div className="section-text">
+            <br />
             <p>
               Visando sanar situações emergenciais e carência de recurso,o nosso diferencial é entregar certificação,
               transparência e rastreabilidade durante toda a cadeia de suprimentos de doação de diferentes produtos.
               Além de otimizar as entregas de doações de forma rápida, eficaz e sem desperdícios.
             </p>
             <br />
-
-            <p>
-              De maneira geral, o nosso projeto prevê que as doações serão separadas como forma de kits antes de serem
-              entregues:
-              <br />
-              Kits limpeza - Candida, sabão em pó...
-              <br />
-              Kits higiene pessoal - escova de dente, absorvente...
-              <br />
-              Kit de móveis - Fogão, Geladeira, Cama, Colchão...
-              <br />
-              Seguindo a cadeia de logística de transporte e chegada ao destino final com rastreabilidade e
-              assertividade.
-            </p>
           </div>
         </div>
       </main>
