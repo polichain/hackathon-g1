@@ -4,114 +4,137 @@ pragma solidity ^0.8.0;
 contract DonationPlatform {
     enum Status { Pending, Verified, Donated, WaitingForPickup, InTransit, Delivered }
 
-    struct Need {
+    struct Request {
         uint256 id;
         string beneficiary;
         string description;
         Status status;
         bool requiresTransport;
-    }
-
-    struct Donation {
-        uint256 needId;
         string donor;
         bool delivered;
         string carrier;
         uint256 transitStartTime;
     }
 
-    Need[] public needs;
-    Donation[] public donations;
+    Request[] public requests;
 
-    mapping(uint256 => uint256) public needToDonation;
+    mapping(uint256 => uint256) public requestToIndex;
 
-    event NeedRegistered(uint256 id, string beneficiary, string description, bool requiresTransport);
-    event NeedVerified(uint256 id);
-    event DonationReceived(uint256 needId, string donor);
-    event DonationInTransit(uint256 needId, string carrier, uint256 transitStartTime);
-    event NeedDelivered(uint256 needId, uint256 donationId);
-    event WaitingForPickup(uint256 needId);
+    event RequestRegistered(uint256 id, string beneficiary, string description, bool requiresTransport);
+    event RequestVerified(uint256 id);
+    event DonationReceived(uint256 id, string donor);
+    event DonationInTransit(uint256 id, string carrier, uint256 transitStartTime);
+    event RequestDelivered(uint256 id);
 
     address public admin;
 
     constructor(address owner) {
-		admin = owner;
-	}
+        admin = owner;
+    }
 
     modifier onlyAdmin() {
         require(msg.sender == admin, "Only admin can perform this action");
         _;
     }
 
-    function registerNeed(string memory _beneficiary, string memory _description, bool _requiresTransport) public onlyAdmin {
-        needs.push(Need({
-            id: needs.length,
+    function registerRequest(string memory _beneficiary, string memory _description, bool _requiresTransport) public onlyAdmin {
+        requests.push(Request({
+            id: requests.length,
             beneficiary: _beneficiary,
             description: _description,
             status: Status.Pending,
-            requiresTransport: _requiresTransport
-        }));
-        emit NeedRegistered(needs.length - 1, _beneficiary, _description, _requiresTransport);
-    }
-
-    function verifyNeed(uint256 _id) public onlyAdmin {
-        require(needs[_id].status == Status.Pending, "Need must be pending verification");
-        needs[_id].status = Status.Verified;
-        emit NeedVerified(_id);
-    }
-
-    function donate(uint256 _needId, string memory _donor) public onlyAdmin {
-        require(needs[_needId].status == Status.Verified, "Need must be verified to donate");
-        donations.push(Donation({
-            needId: _needId,
-            donor: _donor,
+            requiresTransport: _requiresTransport,
+            donor: "",
             delivered: false,
             carrier: "",
             transitStartTime: 0
         }));
-        needToDonation[_needId] = donations.length - 1;
-        needs[_needId].status = Status.Donated;
-        emit DonationReceived(_needId, _donor);
+        emit RequestRegistered(requests.length - 1, _beneficiary, _description, _requiresTransport);
+    }
+
+    function verifyRequest(uint256 _id) public onlyAdmin {
+        require(requests[_id].status == Status.Pending, "Request must be pending verification");
+        requests[_id].status = Status.Verified;
+        emit RequestVerified(_id);
+    }
+
+    function donate(uint256 _id, string memory _donor) public onlyAdmin {
+        require(requests[_id].status == Status.Verified, "Request must be verified to donate");
+        requests[_id].donor = _donor;
+        requests[_id].status = Status.Donated;
+        emit DonationReceived(_id, _donor);
         
-        // Se a necessidade não requer transporte, muda para WaitingForPickup
-        if (!needs[_needId].requiresTransport) {
-            needs[_needId].status = Status.WaitingForPickup;
-            emit WaitingForPickup(_needId);
+        if (!requests[_id].requiresTransport) {
+            requests[_id].status = Status.WaitingForPickup;
         }
     }
 
-    function startTransport(uint256 _needId, string memory _carrier) public onlyAdmin {
-        uint256 donationId = needToDonation[_needId];
-        require(needs[_needId].status == Status.Donated, "Donation must be in Donated status to start transport");
+    function startTransport(uint256 _id, string memory _carrier) public onlyAdmin {
+        require(requests[_id].status == Status.Donated, "Donation must be in Donated status to start transport");
 
-        donations[donationId].carrier = _carrier;
-        donations[donationId].transitStartTime = block.timestamp;
-        needs[_needId].status = Status.InTransit;
+        requests[_id].carrier = _carrier;
+        requests[_id].transitStartTime = block.timestamp;
+        requests[_id].status = Status.InTransit;
 
-        emit DonationInTransit(_needId, _carrier, block.timestamp);
+        emit DonationInTransit(_id, _carrier, block.timestamp);
     }
 
-    function confirmDelivery(uint256 _needId) public onlyAdmin {
-        uint256 donationId = needToDonation[_needId];
-        require(needs[_needId].status == Status.InTransit || needs[_needId].status == Status.WaitingForPickup, 
+    function confirmDelivery(uint256 _id) public onlyAdmin {
+        require(requests[_id].status == Status.InTransit || requests[_id].status == Status.WaitingForPickup, 
                 "Donation must be in transit or waiting for pickup to confirm delivery");
 
-        donations[donationId].delivered = true;
-        needs[_needId].status = Status.Delivered;
-        emit NeedDelivered(_needId, donationId);
+        requests[_id].delivered = true;
+        requests[_id].status = Status.Delivered;
+        emit RequestDelivered(_id);
     }
 
-    function getNeed(uint256 _id) public view returns (Need memory) {
-        return needs[_id];
+    function getRequest(uint256 _id) public view returns (string memory) {
+        Request memory request = requests[_id];
+        
+        string memory result = string(
+            abi.encodePacked(
+                uint2str(request.id), ",",
+                request.beneficiary, ",",
+                request.description, ",",
+                uint2str(uint(request.status)), ",",
+                request.requiresTransport ? "true" : "false", ",",
+                request.donor, ",",
+                request.delivered ? "true" : "false", ",",
+                request.carrier, ",",
+                uint2str(request.transitStartTime)
+            )
+        );
+
+        return result;
     }
 
-    function getDonation(uint256 _id) public view returns (Donation memory) {
-        return donations[_id];
+    function getRequestCount() public view returns (uint256) {
+        return requests.length;
+    }
+
+    function uint2str(uint256 _i) internal pure returns (string memory _uintAsString) {
+        if (_i == 0) {
+            return "0";
+        }
+        uint256 j = _i;
+        uint256 len;
+        while (j != 0) {
+            len++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(len);
+        uint256 k = len;
+        while (_i != 0) {
+            k = k-1;
+            uint256 temp = _i % 10;
+            _i /= 10;
+            bstr[k] = bytes1(uint8(48 + temp));
+        }
+        return string(bstr);
     }
 
     function getDonationStatus(uint256 _id) public view returns (string memory) {
-        uint256 needId = donations[_id].needId;
-        Status status = needs[needId].status;
+        Status status = requests[_id].status;
         
         if (status == Status.Pending) {
             return "Pending";

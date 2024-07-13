@@ -1,92 +1,105 @@
 import React, { useState } from "react";
 import { Header } from "~~/components/Header";
 
-interface Need {
+// import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+
+interface Request {
   id: number;
   beneficiary: string;
   description: string;
   status: string;
   requiresTransport: boolean;
-}
-
-interface Donation {
-  needId: number;
   donor: string;
   delivered: boolean;
   carrier: string;
   transitStartTime: number;
 }
 
-const needs: Need[] = [
-  {
-    id: 1,
-    beneficiary: "Maria Aparecida",
-    description: "Necessita de fraldas de todos os tamanhos",
-    status: "Urgência",
-    requiresTransport: true,
-  },
-  {
-    id: 2,
-    beneficiary: "João da Silva",
-    description: "Necessita de 10 colchões",
-    status: "Sanada",
-    requiresTransport: false,
-  },
-  {
-    id: 3,
-    beneficiary: "Alice de Oliveira",
-    description: "Necessita de 100L de água e 200kg de alimento",
-    status: "Em transporte",
-    requiresTransport: true,
-  },
-  {
-    id: 4,
-    beneficiary: "Artur Calixto",
-    description: "Necessita de 200L de água",
-    status: "Esperando retirada",
-    requiresTransport: false,
-  },
-  {
-    id: 5,
-    beneficiary: "Willian de Azevedo",
-    description: "Necessita de 230kg de alimento e 4 pacotes de fraldas geriátricas",
-    status: "Recebida",
-    requiresTransport: true,
-  },
-  {
-    id: 6,
-    beneficiary: "Evandro Souza",
-    description: "Necessita de remédios para pressão alta e diabetes",
-    status: "Em estoque",
-    requiresTransport: false,
-  },
-];
-
-const donations: Donation[] = [
-  { needId: 1, donor: "Empresa F", delivered: false, carrier: "Transportadora A", transitStartTime: 1714458178 },
-  { needId: 2, donor: "Empresa E", delivered: true, carrier: "Transportadora B", transitStartTime: 1714588878 },
-  { needId: 3, donor: "Empresa D", delivered: false, carrier: "Transportadora C", transitStartTime: 1714669848 },
-  { needId: 4, donor: "Empresa C", delivered: true, carrier: "Transportadora D", transitStartTime: 1714574878 },
-  { needId: 5, donor: "Empresa B", delivered: false, carrier: "Transportadora E", transitStartTime: 1714388742 },
-  { needId: 6, donor: "Empresa A", delivered: true, carrier: "Transportadora F", transitStartTime: 1714296541 },
-];
-
-const statuses = ["Urgência", "Sanada", "Em transporte", "Esperando retirada", "Recebida", "Em estoque"];
-
-const DonationContainer: React.FC<{ donation: Donation; need: Need }> = ({ donation, need }) => (
-  <div className="donation-item">
-    <p>Beneficiário: {need.beneficiary}</p>
-    <p>Descrição: {need.description}</p>
-    <p>Status: {need.status}</p>
-    <p>Doação de: {donation.donor}</p>
-    <p>Entregue: {donation.delivered ? "Sim" : "Não"}</p>
-    <p>Transportadora: {donation.carrier}</p>
-    <p>Data de Início do Transporte: {new Date(donation.transitStartTime * 1000).toLocaleDateString()}</p>
+const RequestContainer: React.FC<{ request: Request }> = ({ request }) => (
+  <div className="request-item">
+    <p>Beneficiário: {request.beneficiary}</p>
+    <p>Descrição: {request.description}</p>
+    <p>Status: {request.status}</p>
+    <p>Doação de: {request.donor}</p>
+    <p>Entregue: {request.delivered ? "Sim" : "Não"}</p>
+    <p>Transportadora: {request.carrier}</p>
+    <p>Data de Início do Transporte: {new Date(request.transitStartTime * 1000).toLocaleDateString()}</p>
   </div>
 );
 
 const Doacoes: React.FC = () => {
-  const [selectedStatus, setSelectedStatus] = useState("Urgência");
+  const [selectedStatus, setSelectedStatus] = useState("Pending");
+  const [requests] = useState<Request[]>([]);
+  // const [requestCountFront] = useState<number | undefined>(undefined);
+
+  // const { data: getRequestCount }  = useScaffoldReadContract({
+  //   contractName: "DonationPlatform",
+  //   functionName: "getRequestCount",
+  // });
+
+  // useEffect(() => {
+  //   if (getRequestCount !== undefined) {
+  //     setRequestCountFront(Number(getRequestCount));
+  //   }
+  // }, [getRequestCount]);
+
+  // useEffect(() => {
+  //   if (requestCountFront !== undefined) {
+  //     fetchRequests(requestCountFront);
+  //   }
+  // }, [requestCountFront]);
+
+  // const fetchRequests = (count: number) => {
+  //   const requestPromises = [];
+  //   for (let i = 0; i < count; i++) {
+  //     const { data: requestData } = useScaffoldReadContract({
+  //       contractName: "DonationPlatform",
+  //       functionName: "getRequest",
+  //       args: [BigInt(i)],
+  //     });
+  //     requestPromises.push(requestData);
+  //   }
+  //   Promise.all(requestPromises).then((requestsData) => {
+  //     const formattedRequests = requestsData
+  //       .filter((data) => data !== undefined)
+  //       .map((data) => formatRequestData(data as string));
+  //     setRequests(formattedRequests);
+  //   });
+  // };
+
+  // const formatRequestData = (data: string): Request => {
+  //   const dataArray = data.split(",");
+  //   return {
+  //     id: parseInt(dataArray[0]),
+  //     beneficiary: dataArray[1],
+  //     description: dataArray[2],
+  //     status: getStatusName(parseInt(dataArray[3])),
+  //     requiresTransport: dataArray[4] === "true",
+  //     donor: dataArray[5],
+  //     delivered: dataArray[6] === "true",
+  //     carrier: dataArray[7],
+  //     transitStartTime: parseInt(dataArray[8]),
+  //   };
+  // };
+
+  // const getStatusName = (statusIndex: number): string => {
+  //   switch (statusIndex) {
+  //     case 0:
+  //       return "Pending";
+  //     case 1:
+  //       return "Verified";
+  //     case 2:
+  //       return "Donated";
+  //     case 3:
+  //       return "WaitingForPickup";
+  //     case 4:
+  //       return "InTransit";
+  //     case 5:
+  //       return "Delivered";
+  //     default:
+  //       return "Unknown";
+  //   }
+  // };
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedStatus(event.target.value);
@@ -97,12 +110,12 @@ const Doacoes: React.FC = () => {
       <Header />
       <main>
         <br />
-        <h1 className="centered-title">Necessidade de ajuda</h1>
+        <h1 className="centered-title">Demandas e doações</h1>
         <div className="filter-container">
           <div className="section-text">
             <label htmlFor="status">Filtrar por status:</label>
             <select id="status" value={selectedStatus} onChange={handleStatusChange}>
-              {statuses.map(status => (
+              {["Pending", "Verified", "Donated", "WaitingForPickup", "InTransit", "Delivered"].map(status => (
                 <option key={status} value={status}>
                   {status}
                 </option>
@@ -110,18 +123,13 @@ const Doacoes: React.FC = () => {
             </select>
           </div>
         </div>
-        <div className="donations-list">
+        <div className="requests-list">
           <br />
-          <h2>Doações com status: {selectedStatus}</h2>
-          {donations
-            .filter(donation => {
-              const need = needs.find(need => need.id === donation.needId && need.status === selectedStatus);
-              return need !== undefined;
-            })
-            .map(donation => {
-              const need = needs.find(need => need.id === donation.needId)!;
-              return <DonationContainer key={donation.needId} donation={donation} need={need} />;
-            })}
+          {requests
+            .filter(request => request.status === selectedStatus)
+            .map(request => (
+              <RequestContainer key={request.id} request={request} />
+            ))}
         </div>
       </main>
     </div>
