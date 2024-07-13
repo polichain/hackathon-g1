@@ -3,10 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/logo.png";
 
-const statuses = ["Ativa", "Inativa", "Em transporte", "Esperando retirada", "Recebida", "Em estoque"];
-
 const Doacoes = () => {
-  const [selectedStatus, setSelectedStatus] = useState("Ativa");
+  const [selectedStatus, setSelectedStatus] = useState("Urgência");
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedStatus(event.target.value);
@@ -16,7 +14,9 @@ const Doacoes = () => {
     <div className="page-container">
       <header className="header">
         <div className="logo-container">
-          <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          <Link href="/sobre" passHref>
+            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          </Link>
         </div>
         <nav className="nav">
           <Link href="/por-que-doar" passHref>
@@ -28,24 +28,30 @@ const Doacoes = () => {
           <Link href="/doacoes" passHref>
             <div>Doações</div>
           </Link>
-          <button className="donate-button">Quero Doar</button>
+          <Link href="/quero-doar" passHref>
+            <button className="donate-button">Quero Doar</button>
+          </Link>
         </nav>
       </header>
-      <main className="main-content">
-        <h1 className="centered-title">Doações</h1>
+      <main>
+        <br />
+        <h1 className="centered-title">Necessidade de ajuda</h1>
         <div className="filter-container">
+          <br />
           <label htmlFor="status">Filtrar por status:</label>
+          <br />
           <select id="status" value={selectedStatus} onChange={handleStatusChange}>
-            {statuses.map(status => (
-              <option key={status} value={status}>
-                {status}
-              </option>
-            ))}
+            <option value="Urgência">Urgência</option>
+            <option value="Sanada">Sanada</option>
+            <option value="Em transporte">Em transporte</option>
+            <option value="Esperando retirada">Esperando retirada</option>
+            <option value="Recebida">Recebida</option>
+            <option value="Em estoque">Em estoque</option>
           </select>
         </div>
         <div className="donations-list">
           <br />
-          <h2>Doações com status: {selectedStatus}</h2>
+          <h2>Status das doações: {selectedStatus}</h2>
           {/* Aqui você mapeia as doações com base no status selecionado */}
         </div>
       </main>

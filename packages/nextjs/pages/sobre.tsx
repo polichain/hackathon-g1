@@ -8,7 +8,9 @@ const Sobre = () => {
     <div className="page-container">
       <header className="header">
         <div className="logo-container">
-          <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          <Link href="/sobre" passHref>
+            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          </Link>
         </div>
         <nav className="nav">
           <Link href="/por-que-doar" passHref>
@@ -20,7 +22,9 @@ const Sobre = () => {
           <Link href="/doacoes" passHref>
             <div>Doações</div>
           </Link>
-          <button className="donate-button">Quero Doar</button>
+          <Link href="/quero-doar" passHref>
+            <button className="donate-button">Quero Doar</button>
+          </Link>{" "}
         </nav>
       </header>
       <main className="main-content">

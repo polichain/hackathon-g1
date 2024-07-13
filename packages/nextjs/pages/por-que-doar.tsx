@@ -8,7 +8,9 @@ const PorQueDoar = () => {
     <div className="page-container">
       <header className="header">
         <div className="logo-container">
-          <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          <Link href="/sobre" passHref>
+            <Image src={logo} alt="Logo" className="logo" width={50} height={50} />
+          </Link>
         </div>
         <nav className="nav">
           <Link href="/por-que-doar" passHref>
@@ -20,7 +22,9 @@ const PorQueDoar = () => {
           <Link href="/doacoes" passHref>
             <div>Doações</div>
           </Link>
-          <button className="donate-button">Quero Doar</button>
+          <Link href="/quero-doar" passHref>
+            <button className="donate-button">Quero Doar</button>
+          </Link>{" "}
         </nav>
       </header>
       <main className="main-content">
@@ -55,7 +59,7 @@ const PorQueDoar = () => {
           </div>
           <div className="section">
             <div className="image-wrapper">
-              <Image src="/voluntarios2.jpg" alt="Voluntários" width={250} height={250} />
+              <Image src="/voluntarios.jpg" alt="Voluntários" width={250} height={250} />
             </div>
             <div className="section-text">
               <p>
