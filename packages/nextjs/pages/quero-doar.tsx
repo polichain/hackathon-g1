@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Header } from "~~/components/Header";
 
 interface Request {
@@ -81,22 +82,34 @@ const requests: Request[] = [
     transitStartTime: 1714296541,
   },
 ];
-
 const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ request, onClose }) => {
+  const router = useRouter();
+
+  const handleDoarClick = () => {
+    router.push("/formulario-de-doacao");
+  };
+
   if (!request) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="popup-content bg-white p-6 rounded-lg shadow-lg w-1/2">
+    <div className="fixed">
+      <div className="popup-content">
         <h2 className="text-2xl mb-4">Detalhes da Doação</h2>
         <p>Beneficiário: {request.beneficiary}</p>
         <p>Descrição: {request.description}</p>
         <p>Status: {request.status}</p>
-        <p>Doação de: {request.donor}</p>
         <p>Entregue: {request.delivered ? "Sim" : "Não"}</p>
-        <p>Transportadora: {request.carrier}</p>
-        <p>Data de Início do Transporte: {new Date(request.transitStartTime * 1000).toLocaleDateString()}</p>
-        {request.status === "Urgência" && <button className="btn btn-primary mt-4">Doar</button>}
+        {request.status === "Em transporte" && (
+          <>
+            <p>Transportadora: {request.carrier}</p>
+            <p>Data de Início do Transporte: {new Date(request.transitStartTime * 1000).toLocaleDateString()}</p>
+          </>
+        )}
+        {request.status === "Urgência" && (
+          <button className="btn donate-button mt-4" onClick={handleDoarClick}>
+            Quero Doar
+          </button>
+        )}
         <button className="btn btn-secondary mt-4" onClick={onClose}>
           Fechar
         </button>
