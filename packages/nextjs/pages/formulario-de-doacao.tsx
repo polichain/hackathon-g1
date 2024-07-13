@@ -7,9 +7,8 @@ import { Header } from "~~/components/Header";
 const FormularioDeDoacao: React.FC = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    nome: "",
-    cnpj: "",
-    telefone: "",
+    beneficiario: "",
+    endereco: "",
     itens: "",
   });
 
@@ -19,9 +18,8 @@ const FormularioDeDoacao: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você deve integrar com o contrato inteligente ou backend para processar os dados do formulário
     console.log(formData);
-    router.push("/thank-you"); // Redireciona para uma página de agradecimento ou volta para a lista
+    router.push("/thank-you");
   };
 
   return (
@@ -32,20 +30,12 @@ const FormularioDeDoacao: React.FC = () => {
         <div className="form-container">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="nome">Nome</label>
-              <input type="text" id="nome" name="nome" value={formData.nome} onChange={handleChange} required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="cnpj">CNPJ</label>
-              <input type="text" id="cnpj" name="cnpj" value={formData.cnpj} onChange={handleChange} required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="telefone">Telefone</label>
+              <label htmlFor="beneficiario">Beneficiário</label>
               <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                value={formData.telefone}
+                type="text"
+                id="beneficiario"
+                name="beneficiario"
+                value={formData.beneficiario}
                 onChange={handleChange}
                 required
               />
@@ -53,6 +43,10 @@ const FormularioDeDoacao: React.FC = () => {
             <div className="form-group">
               <label htmlFor="itens">Itens a serem doados</label>
               <textarea id="itens" name="itens" value={formData.itens} onChange={handleChange} required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="doador">Doador</label>
+              <input type="text" id="doador" name="doador" value={formData.endereco} onChange={handleChange} required />
             </div>
             <button type="submit" className="cta-button">
               Enviar
