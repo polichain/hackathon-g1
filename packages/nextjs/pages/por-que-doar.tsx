@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "~~/components/Header";
 
-const PorQueDoar = () => {
+const PorQueDoar: React.FC = () => {
   return (
     <div className="page-container">
       <Header />

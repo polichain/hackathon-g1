@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Header } from "~~/components/Header";
 
-const Sobre = () => {
+const Sobre: React.FC = () => {
   return (
     <div className="page-container">
       <Header />
@@ -21,7 +21,7 @@ const Sobre = () => {
               Há 15 meses os oceanos estão batendo recordes de temperaturas máximas e junho bateu o 13° recorde mensal
               seguido de temperatura. Quando olhamos para o sul global, vemos eventos extremos climáticos acontecendo de
               norte ao sul do Brasil. Desde seca na Amazônia, incêndios no pantanal até inundações no Acre e no RS sendo
-              intensificadas pelos fenômenos já conhecidos do El nino e La nina.{" "}
+              intensificadas pelos fenômenos já conhecidos do El nino e La nina.
             </p>
             <br />
             <p>
@@ -46,7 +46,7 @@ const Sobre = () => {
           <div className="section-text">
             <br />
             <p>
-              Visando sanar situações emergenciais e carência de recurso,o nosso diferencial é entregar certificação,
+              Visando sanar situações emergenciais e carência de recurso, o nosso diferencial é entregar certificação,
               transparência e rastreabilidade durante toda a cadeia de suprimentos de doação de diferentes produtos.
               Além de otimizar as entregas de doações de forma rápida, eficaz e sem desperdícios.
             </p>
