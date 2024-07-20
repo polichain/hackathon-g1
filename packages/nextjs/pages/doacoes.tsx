@@ -94,6 +94,25 @@ const requests: Request[] = [
   },
 ];
 
+// const [requestCountFront] = useState<number | undefined>(undefined);
+
+//   const { data: getRequestCount }  = useScaffoldReadContract({
+//     contractName: "DonationPlatform",
+//     functionName: "getRequestCount",
+//   });
+
+//   useEffect(() => {
+//     if (getRequestCount !== undefined) {
+//       setRequestCountFront(Number(getRequestCount));
+//     }
+//   }, [getRequestCount]);
+
+//   useEffect(() => {
+//     if (requestCountFront !== undefined) {
+//       fetchRequests(requestCountFront);
+//     }
+//   }, [requestCountFront]);
+
 const statuses = ["Urgência", "Sanada", "Em transporte", "Esperando retirada", "Recebida", "Em estoque"];
 
 const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ request, onClose }) => {
