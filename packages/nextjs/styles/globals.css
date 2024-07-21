@@ -12,7 +12,7 @@ body {
 }
 
 .page-container {
-  padding: 20px;
+  padding: 10px;
   font-family: Arial, sans-serif;
 }
 
@@ -141,10 +141,10 @@ body {
 .cta-button {
   background-color: #18044E;
   color: white;
-  padding: 15px 30px;
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   transition: background-color 0.3s;
   border: none;
   cursor: pointer;
@@ -271,4 +271,11 @@ form-container {
 
 .cta-button:hover {
   background-color: #18044E;
+}
+
+.token-image {
+  width: 200px;  
+  height: 200px; 
+  object-fit: cover;
+  border-radius: 8px;
 }

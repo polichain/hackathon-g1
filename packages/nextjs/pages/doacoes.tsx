@@ -18,7 +18,7 @@ const requests: Request[] = [
   {
     id: 1,
     beneficiary: "Maria Aparecida",
-    description: "Necessita de 50 pacotes de fraldas do tamanho P",
+    description: "Necessita de fraldas de todos os tamanhos",
     status: "Urgência",
     requiresTransport: true,
     donor: "Empresa F",
@@ -29,9 +29,9 @@ const requests: Request[] = [
   {
     id: 2,
     beneficiary: "João da Silva",
-    description: "Precisa-se de 10 colchões",
+    description: "Necessita de 10 colchões",
     status: "Sanada",
-    requiresTransport: true,
+    requiresTransport: false,
     donor: "Empresa E",
     delivered: true,
     carrier: "Transportadora B",
@@ -51,12 +51,12 @@ const requests: Request[] = [
   {
     id: 4,
     beneficiary: "Artur Calixto",
-    description: "Precisa-se de 200L de água",
+    description: "Necessita de 200L de água",
     status: "Esperando retirada",
     requiresTransport: false,
     donor: "Empresa C",
     delivered: true,
-    carrier: "",
+    carrier: "Transportadora D",
     transitStartTime: 1714574878,
   },
   {
@@ -119,7 +119,12 @@ const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ req
   const router = useRouter();
 
   const handleDoarClick = () => {
-    router.push("/formulario-de-doacao");
+    if (request) {
+      router.push({
+        pathname: "/formulario-de-doacao",
+        query: { id: request.id },
+      });
+    }
   };
 
   if (!request) return null;
