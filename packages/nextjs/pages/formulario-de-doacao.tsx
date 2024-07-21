@@ -60,7 +60,7 @@ const FormularioDeDoacao: React.FC = () => {
 
   const handleClosePopup = () => {
     setTokenData(null);
-    router.push("/thank-you");
+    router.push("/obrigado");
   };
 
   return (
