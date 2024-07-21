@@ -7,6 +7,7 @@ interface Request {
   beneficiary: string;
   description: string;
   status: string;
+  pais: string;
   requiresTransport: boolean;
   donor: string;
   delivered: boolean;
@@ -20,6 +21,7 @@ const requests: Request[] = [
     beneficiary: "Maria Aparecida",
     description: "Necessita de fraldas de todos os tamanhos",
     status: "Urgência",
+    pais: "Brasil",
     requiresTransport: true,
     donor: "Empresa F",
     delivered: false,
@@ -31,6 +33,7 @@ const requests: Request[] = [
     beneficiary: "João da Silva",
     description: "Necessita de 10 colchões",
     status: "Sanada",
+    pais: "Argentina",
     requiresTransport: false,
     donor: "Empresa E",
     delivered: true,
@@ -42,6 +45,7 @@ const requests: Request[] = [
     beneficiary: "Alice de Oliveira",
     description: "Necessita de 100L de água e 200kg de alimento",
     status: "Em transporte",
+    pais: "Peru",
     requiresTransport: true,
     donor: "Empresa D",
     delivered: false,
@@ -53,6 +57,7 @@ const requests: Request[] = [
     beneficiary: "Artur Calixto",
     description: "Necessita de 200L de água",
     status: "Esperando retirada",
+    pais: "Bolivia",
     requiresTransport: false,
     donor: "Empresa C",
     delivered: true,
@@ -64,6 +69,7 @@ const requests: Request[] = [
     beneficiary: "Willian de Azevedo",
     description: "Necessita de 230kg de alimento e 4 pacotes de fraldas geriátricas",
     status: "Recebida",
+    pais: "Mexico",
     requiresTransport: true,
     donor: "Empresa B",
     delivered: false,
@@ -75,6 +81,7 @@ const requests: Request[] = [
     beneficiary: "Evandro Souza",
     description: "Necessita de remédios para pressão alta e diabetes",
     status: "Em estoque",
+    pais: "Nicaragua",
     requiresTransport: false,
     donor: "Empresa A",
     delivered: true,
@@ -86,6 +93,7 @@ const requests: Request[] = [
     beneficiary: "Joao Vinicius",
     description: "Precisa-se de 25 cobertores",
     status: "Urgência",
+    pais: "Panama",
     requiresTransport: true,
     donor: "Empresa Y",
     delivered: false,
@@ -136,6 +144,7 @@ const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ req
         <p>Beneficiário: {request.beneficiary}</p>
         <p>Descrição: {request.description}</p>
         <p>Status: {request.status}</p>
+        <p>Origem: {request.pais}</p>
         <p>Entregue: {request.delivered ? "Sim" : "Não"}</p>
         {request.status === "Em transporte" && (
           <>
@@ -161,6 +170,7 @@ const DonationContainer: React.FC<{ request: Request; onClick: () => void }> = (
     <p>Beneficiário: {request.beneficiary}</p>
     <p>Descrição: {request.description}</p>
     <p>Status: {request.status}</p>
+    <p>Origem: {request.pais}</p>
   </div>
 );
 

@@ -17,11 +17,13 @@ const requests = [
     id: 1,
     beneficiary: "Maria Aparecida",
     description: "Necessita de 50 pacotes de fraldas do tamanho P",
+    pais: "Brasil",
   },
   {
     id: 7,
     beneficiary: "Joao Vinicius",
     description: "Precisa-se de 25 cobertores",
+    pais: "Panama",
   },
 ];
 
@@ -32,6 +34,7 @@ const FormularioDeDoacao: React.FC = () => {
     doador: "",
     beneficiario: "",
     descricao: "",
+    pais: "",
   });
   const [tokenData, setTokenData] = useState<any>(null);
 
@@ -43,6 +46,7 @@ const FormularioDeDoacao: React.FC = () => {
           ...formData,
           beneficiario: request.beneficiary,
           descricao: request.description,
+          pais: request.pais,
         });
       }
     }
@@ -75,6 +79,9 @@ const FormularioDeDoacao: React.FC = () => {
             </div>
             <div className="form-group">
               <h2>Descrição: {formData.descricao}</h2>
+            </div>
+            <div className="form-group">
+              <h2>Origem: {formData.pais}</h2>
             </div>
             <div className="form-group">
               <label htmlFor="doador">Doador</label>

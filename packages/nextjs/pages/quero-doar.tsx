@@ -14,12 +14,26 @@ interface Request {
   transitStartTime: number;
 }
 
+interface Request {
+  id: number;
+  beneficiary: string;
+  description: string;
+  status: string;
+  pais: string;
+  requiresTransport: boolean;
+  donor: string;
+  delivered: boolean;
+  carrier: string;
+  transitStartTime: number;
+}
+
 const requests: Request[] = [
   {
     id: 1,
     beneficiary: "Maria Aparecida",
     description: "Necessita de fraldas de todos os tamanhos",
     status: "Urgência",
+    pais: "Brasil",
     requiresTransport: true,
     donor: "Empresa F",
     delivered: false,
@@ -31,6 +45,7 @@ const requests: Request[] = [
     beneficiary: "Joao Vinicius",
     description: "Precisa-se de 25 cobertores",
     status: "Urgência",
+    pais: "Panama",
     requiresTransport: true,
     donor: "Empresa Y",
     delivered: false,
@@ -60,6 +75,7 @@ const Popup: React.FC<{ request: Request | null; onClose: () => void }> = ({ req
         <p>Beneficiário: {request.beneficiary}</p>
         <p>Descrição: {request.description}</p>
         <p>Status: {request.status}</p>
+        <p>Origem: {request.pais}</p>
         <p>Entregue: {request.delivered ? "Sim" : "Não"}</p>
         {request.status === "Em transporte" && (
           <>
@@ -85,6 +101,7 @@ const DonationContainer: React.FC<{ request: Request; onClick: () => void }> = (
     <p>Beneficiário: {request.beneficiary}</p>
     <p>Descrição: {request.description}</p>
     <p>Status: {request.status}</p>
+    <p>Origem: {request.pais}</p>
   </div>
 );
 

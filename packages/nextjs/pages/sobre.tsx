@@ -26,17 +26,17 @@ const Sobre: React.FC = () => {
             <br />
             <p>
               Sendo assim, podemos começar a entender que a causa raiz de todas as catástrofes globais, como as ocorrida
-              no RS são consequências dos altos níveis de uso de combustíveis fósseis e aumento da emissão dos gases de
-              efeito estufa na terra. Já se sabe que pelo menos 30% dos brasileiros já tiveram prejuízos em casa devido
-              ao clima e 3 milhões de pessoas foram impactadas pelas inundações recentes nos RS, atingido inclusive 15
-              mil animais que foram abandonados frente a esse desastre.
+              no RS-Brasil são consequências dos altos níveis de uso de combustíveis fósseis e aumento da emissão dos
+              gases de efeito estufa na terra. Já se sabe que pelo menos 30% dos brasileiros já tiveram prejuízos em
+              casa devido ao clima e 3 milhões de pessoas foram impactadas pelas inundações recentes nos RS, atingido
+              inclusive 15 mil animais que foram abandonados frente a esse desastre.
             </p>
             <br />
             <p>
               Com esse panorama, o nosso projeto nessa plataforma busca solucionar os gargalos na cadeia de suprimentos
-              de doações em casos de emergências e situações de vulnerabilidade, com transparência e certificações
-              assegurando que as doações encontrem o caminho mais rápido e eficaz de chegar a destino final que
-              solicitar uma demanda específica de produto.
+              de doações em casos de emergências e situações de vulnerabilidade não só no Brasil mas em toda América
+              Latina, com transparência e certificações assegurando que as doações encontrem o caminho mais rápido e
+              eficaz de chegar a destino final que solicitar uma demanda específica de produto.
             </p>
           </div>
           <br />
@@ -48,7 +48,8 @@ const Sobre: React.FC = () => {
             <p>
               Visando sanar situações emergenciais e carência de recurso, o nosso diferencial é entregar certificação,
               transparência e rastreabilidade durante toda a cadeia de suprimentos de doação de diferentes produtos.
-              Além de otimizar as entregas de doações de forma rápida, eficaz e sem desperdícios.
+              Além de otimizar as entregas de doações de forma rápida, eficaz e sem desperdícios. Mostrando que a
+              fronteira da língua não é o suficiente para parar a vontade do povo latino de se ajudar.
             </p>
             <br />
           </div>

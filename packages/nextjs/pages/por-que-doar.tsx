@@ -15,30 +15,30 @@ const PorQueDoar: React.FC = () => {
               <p>
                 As empresas têm um papel fundamental na construção de um futuro melhor para todos. Ao investir em
                 doações, seja em dinheiro ou produtos, você não está apenas fortalecendo a sua marca, mas também
-                contribuindo para o desenvolvimento social e econômico do Brasil. Cada contribuição pode gerar um
+                contribuindo para o desenvolvimento social e econômico do povo latino. Cada contribuição pode gerar um
                 impacto significativo, desde melhorar a educação, apoiar a saúde, promover a cultura até fortalecer
                 iniciativas ambientais. Empresas que doam não só ajudam a resolver problemas urgentes, mas também
                 constroem um legado de responsabilidade social que inspira colaboradores e clientes.
               </p>
             </div>
             <div className="image-wrapper">
-              <Image src="/maos.jpg" alt="Mãos unidas" width={250} height={250} />
+              <Image src="/maos.png" alt="latam" width={200} height={250} />
             </div>
           </div>
           <div className="section">
-            <div className="image-wrapper">
-              <Image src="/voluntarios.jpg" alt="Voluntários" width={250} height={250} />
+            <div className="image-full">
+              <Image src="/voluntarios.jpg" alt="Voluntários" width={200} height={200} />
             </div>
             <div className="cemtered-title">
               <p> Doe e transforme.</p>
-              <p>Juntos, podemos fazer do Brasil um lugar melhor para todos.</p>
+              <p>Juntos, podemos fazer a América Latina um lugar melhor para todos.</p>
             </div>
           </div>
-        </div>
-        <div className="cta-container">
-          <Link href="/doacoes" passHref>
-            <button className="cta-button">Faça a Diferença</button>
-          </Link>
+          <div className="cta-container">
+            <Link href="/doacoes" passHref>
+              <button className="cta-button">Faça a Diferença</button>
+            </Link>
+          </div>
         </div>
       </main>
     </div>
