@@ -1,4 +1,4 @@
-# Projeto Corrente do Bem
+# 🇧🇷 🇬🇫 🇬🇾 🇵🇦 🇦🇷 🇻🇪 Projeto Corrente do Bem 🇵🇪 🇺🇾 🇨🇱 🇧🇴 🇪🇨 🇵🇾
 
 ### Descrição
 O projeto Correntes do Bem é uma plataforma descentralizada que visa resolver os gargalos da cadeia de suprimentos humanitária com certificação, rastreabilidade e transparência. Através do uso de tecnologia blockchain, garantimos que as doações cheguem de forma eficiente e rápida às comunidades necessitadas em toda a América Latina. Além disso, para incentivar a doação entre a comunidade latina, criamos uma recompensa para doadores por meio de Tokens: cada vez que um usuário doa stablecoins para uma demanda, ele recebe tokens CBC como recompensa. Isso incentiva as doações e aumenta a circulação dos tokens CBC.
@@ -18,14 +18,14 @@ O projeto Correntes do Bem é uma plataforma descentralizada que visa resolver o
 - **Contrato da Plataforma**:
   
     Endereço: 0xdd212ca784532be47a79ed49bb833417f763b0f0
+
+  [LaChain Network](https://testexplorer.lachain.network/address/0x4e43890B49B51E582d105Bb3300D8c1Cac7D56E6)
   
 - **Token**:   
   
     Endereço: 0x4e43890B49B51E582d105Bb3300D8c1Cac7D56E6
-  
-- **Mais detalhes**:   
-  
-    [LaChain Network](https://testexplorer.lachain.network/address/0x4e43890B49B51E582d105Bb3300D8c1Cac7D56E6)
+    
+    [LaChain Network](https://testexplorer.lachain.network/address/0xdd212Ca784532Be47A79eD49Bb833417f763b0f0)
 
 ### Link de Deploy
 Acesse a plataforma no link: [Corrente do Bem](https://corrente-do-bem.vercel.app/)
