@@ -1,7 +1,7 @@
 # Projeto Corrente do Bem
 
 ### Descrição
-O projeto Correntes do Bem é uma plataforma descentralizada que visa resolver os gargalos da cadeia de suprimentos humanitária com certificação, rastreabilidade e transparência. Através do uso de tecnologia blockchain, garantimos que as doações cheguem de forma eficiente e rápida às comunidades necessitadas em toda a América Latina. Além disso, para retificar a transparência de todo o processo contamos com uma recompensa de token para possíveis comprovações futuras. 
+O projeto Correntes do Bem é uma plataforma descentralizada que visa resolver os gargalos da cadeia de suprimentos humanitária com certificação, rastreabilidade e transparência. Através do uso de tecnologia blockchain, garantimos que as doações cheguem de forma eficiente e rápida às comunidades necessitadas em toda a América Latina. Além disso, para incentivar a doação entre a comunidade latina, criamos uma recompensa para doadores por meio de Tokens: cada vez que um usuário doa stablecoins para uma demanda, ele recebe tokens CBC como recompensa. Isso incentiva as doações e aumenta a circulação dos tokens CBC.
 
 ### Funcionalidades
 - **Gestão de Tokens**: Visualização e interação com tokens na blockchain.
